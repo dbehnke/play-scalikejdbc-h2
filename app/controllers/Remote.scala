@@ -11,9 +11,6 @@ import helper.database._
 import helper.authentication.basic._
 
 object Remote extends Controller {
-  val auth_user = "admin"
-  val auth_pw = "cheesefinger"
-
   AuthenticatedAsync.setUserPw("admin","cheesefinger")
 
   def test = AuthenticatedAsync.Authenticated { user => implicit request => { 
