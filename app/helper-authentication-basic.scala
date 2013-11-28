@@ -27,16 +27,16 @@ object Authenticated extends ActionBuilder[AuthenticatedRequest] {
       val auth = request.headers.get("Authorization")
       auth match {
         case Some(s) => {
-          Logger.debug("Authorization Header="+s)
+          //Logger.debug("Authorization Header="+s)
           val sArray = s.split(" ")
           if (sArray.length != 2) {
             //Logger.debug("Authorization Header split not length 2")
             Future.successful(Results.Unauthorized("Unauthorized\n"))
           }
           val authDecoded = new String(org.apache.commons.codec.binary.Base64.decodeBase64(sArray(1).getBytes))
-          Logger.debug("authDecoded="+authDecoded)
+          //Logger.debug("authDecoded="+authDecoded)
           val tArray = authDecoded.split(":")
-          Logger.debug("length of tArray = "+ sArray.length)
+          //Logger.debug("length of tArray = "+ sArray.length)
           if(tArray.length != 2) {
             //Logger.debug("authDecoded split not length 2")
             Future.successful(Results.Unauthorized("Unauthorized\n"))  
