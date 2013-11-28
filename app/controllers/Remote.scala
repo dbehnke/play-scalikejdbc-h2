@@ -12,7 +12,7 @@ object Remote extends Controller {
   Authenticated.setUserPw("admin","cheesefinger")
 
   def test = Authenticated {
-    Ok(Queries.toJSONObject(Queries.test).toString()).as("applicaiton/json")
+    Ok(Queries.toJSONObject(Queries.test).toString()).as("application/json")
   }
 
 }
